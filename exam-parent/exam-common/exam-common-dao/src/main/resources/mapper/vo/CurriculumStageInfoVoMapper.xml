@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.vo.CurriculumStageInfoVoMapper">
+
+    <resultMap id="curriculumStageInfo" type="com.coolyusen.exam.vo.CurriculumStageInfoVo">
+        <result column="curriculumId" property="curriculumId"></result>
+        <result column="curriculumName" property="curriculumName"></result>
+        <result column="curriculumDetail" property="curriculumDetail"></result>
+        <result column="stageId" property="stageId"></result>
+        <result column="stageName" property="stageName"></result>
+        <result column="stageDetail" property="stageDetail"></result>
+        <result column="classHour" property="classHour"></result>
+        <result column="curriculumSystemId" property="curriculumSystemId"></result>
+        <result column="curriculumSystemName" property="curriculumSystemName"></result>
+        <result column="curriculumSystemDetail" property="curriculumSystemDetail"></result>
+    </resultMap>
+
+    <select id="findCurriculumStageInfo" resultMap="curriculumStageInfo">
+        SELECT c.id AS curriculumId,c.curriculum_name AS
+        curriculumName,c.curriculum_detail AS curriculumDetail
+        ,s.id AS stageId,s.stage_name AS stageName,s.stage_detail
+        AS stageDetail,s.class_hour AS classHour
+        ,csy.id AS curriculumSystemId,csy.curriculum_system_name
+        AS curriculumSystemName,
+        csy.curriculum_system_detail AS curriculumSystemDetail
+         FROM curriculum_stage AS cs
+        INNER JOIN curriculum AS c
+        ON cs.`curriculum_id` = c.id AND c.curriculum_del = 0
+        INNER JOIN stage AS s
+        ON cs.stage_id = s.id AND s.stage_del = 0
+        INNER JOIN curriculum_system AS csy
+        ON csy.id = s.curriculum_system_id
+        <where>
+            <if test="curriculumId != null and curriculumId != 0">
+                and c.id = #{curriculumId}
+            </if>
+            <if test="stageId != null and stageId != 0">
+                and s.id = #{stageId}
+            </if>
+            <if test="curriculumSystemId != null and curriculumSystemId != 0">
+                and csy.id = #{curriculumSystemId}
+            </if>
+        </where>
+        <if test="groupFlag">
+            group by csy.id
+        </if>
+    </select>
+</mapper>

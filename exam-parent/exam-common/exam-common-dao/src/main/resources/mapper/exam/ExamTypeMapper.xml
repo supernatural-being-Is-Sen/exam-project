@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.exam.ExamTypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.exam.ExamType">
+        <id column="id" property="id" />
+        <result column="type_name" property="typeName" />
+        <result column="subject_count" property="subjectCount"/>
+        <result column="subject_score" property="subjectScore"/>
+        <result column="exam_time" property="examTime" />
+        <result column="exam_detail" property="examDetail" />
+        <result column="exam_del" property="examDel" />
+    </resultMap>
+
+</mapper>

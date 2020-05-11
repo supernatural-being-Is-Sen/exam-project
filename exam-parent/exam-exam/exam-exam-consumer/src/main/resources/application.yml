@@ -1,0 +1,25 @@
+
+server:
+  port: 7800
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  #redis
+  redis:
+    host: 118.25.144.199
+    port: 6379
+    password: senge
+    database: 0
+  application:
+    name: exam-exam-consumer
+#eureka
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8887/eureka/
+    register-with-eureka: true
+#开启容错
+feign:
+  hystrix:
+    enabled: true

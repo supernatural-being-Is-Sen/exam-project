@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coolyusen.exam.mapper.curriculum.StageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.curriculum.Stage">
+        <id column="id" property="id" />
+        <result column="stage_name" property="stageName" />
+        <result column="stage_detail" property="stageDetail" />
+        <result column="class_hour" property="classHour" />
+        <result column="stage_num" property="stageNum" />
+        <result column="curriculum_systemId" property="curriculumSystemId" />
+        <result column="stage_del" property="stageDel" />
+    </resultMap>
+
+</mapper>

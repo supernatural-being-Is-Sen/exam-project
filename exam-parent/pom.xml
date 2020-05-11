@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>exam-base</module>
+        <module>exam-common</module>
+        <module>exam-eureka-server</module>
+        <module>exam-config-server</module>
+        <module>exam-zuul-server</module>
+        <module>exam-curriculum</module>
+        <module>exam-department</module>
+        <module>exam-exam</module>
+        <module>exam-grade</module>
+        <module>exam-subject</module>
+        <module>exam-test</module>
+        <module>exam-user</module>
+        <module>exam-file</module>
+        <module>exam-gateway</module>
+        <module>exam-zuul</module>
+    </modules>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.9.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.coolyusen</groupId>
+    <artifactId>exam-parent</artifactId>
+    <version>1.0</version>
+    <name>exam-parent</name>
+    <description>考试项目父项目</description>
+    <packaging>pom</packaging>
+
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
+    </properties>
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!--测试包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
+
+        <!--swagger文档 可选的-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+    </dependencies>
+
+    <!--springcloud的版本控制-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

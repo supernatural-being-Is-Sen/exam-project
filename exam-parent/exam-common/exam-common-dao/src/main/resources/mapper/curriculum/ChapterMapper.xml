@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.curriculum.ChapterMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.curriculum.Chapter">
+        <id column="id" property="id" />
+        <result column="chapter_name" property="chapterName" />
+        <result column="chapter_detail" property="chapterDetail" />
+        <result column="curriculum_id" property="curriculumId" />
+        <result column="chapter_del" property="chapterDel" />
+    </resultMap>
+
+    <select id="findChapterIdByCurriculumList" resultType="java.lang.Long">
+        select id from chapter
+        <where>
+            and 
+            curriculum_id
+            in (
+            <foreach collection="curriculumList" item="curriculumId" separator=",">
+                #{curriculumId}
+            </foreach>
+            )
+        </where>
+    </select>
+
+</mapper>

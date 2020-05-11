@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.user.StudentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.user.Student">
+        <id column="id" property="id" />
+        <result column="stu_num" property="stuNum" />
+        <result column="user_id" property="userId" />
+        <result column="student_type_id" property="studentTypeId" />
+    </resultMap>
+
+    <insert id="addStudent" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into student (stu_num,user_id,student_type_id)
+        values
+        (
+            #{stuNum},
+            #{userId},
+            #{studentTypeId}
+        );
+    </insert>
+</mapper>

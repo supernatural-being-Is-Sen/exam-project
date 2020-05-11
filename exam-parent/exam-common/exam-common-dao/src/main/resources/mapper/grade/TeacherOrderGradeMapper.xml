@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.grade.TeacherOrderGradeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.grade.TeacherOrderGrade">
+        <id column="id" property="id" />
+        <result column="teacher_id" property="teacherId" />
+        <result column="grade_id" property="gradeId" />
+        <result column="begin_time" property="beginTime" />
+        <result column="end_time" property="endTime" />
+        <result column="teacher_order_grade_del" property="teacherOrderGradeDel" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,19 @@
+
+server:
+  port: 7400
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: exam-grade-consumer
+#eureka
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8887/eureka/
+    register-with-eureka: true
+#开启容错
+feign:
+  hystrix:
+    enabled: true

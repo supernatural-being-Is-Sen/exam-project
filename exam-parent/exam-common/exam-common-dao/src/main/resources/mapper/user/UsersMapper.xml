@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.user.UsersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.user.Users">
+        <id column="id" property="id" />
+        <result column="nick_name" property="nickName" />
+        <result column="username" property="username" />
+        <result column="email" property="email" />
+        <result column="wx_user_id" property="wxUserId" />
+        <result column="password" property="password" />
+        <result column="age" property="age" />
+        <result column="sex" property="sex" />
+        <result column="birthday" property="birthday" />
+        <result column="create_time" property="createTime" />
+        <result column="id_card" property="idCard" />
+        <result column="card_type" property="cardType" />
+        <result column="user_status" property="userStatus" />
+        <result column="role" property="role" />
+        <result column="user_del" property="userDel" />
+    </resultMap>
+
+    <insert id="addUser" keyProperty="id" keyColumn="id" useGeneratedKeys="true" >
+        insert into users (nick_name,username,email,`password`,create_time,user_status,role,user_del)
+        values
+        (
+            #{nickName},
+            #{username},
+            #{email},
+            #{password},
+            #{createTime},
+            #{userStatus},
+            #{role},
+            #{userDel}
+        );
+    </insert>
+
+    <update id="makeUserBaseInfoByEmail" parameterType="com.coolyusen.exam.pojo.user.Users">
+        update users
+        set
+        nick_name = #{nickName}
+        <if test="sex != null and sex != ''">
+            ,sex = #{sex}
+        </if>
+        <if test="age != null">
+            ,age = #{age}
+        </if>
+        <if test="idCard != null and idCard != ''">
+            ,id_card = #{idCard}
+        </if>
+        <if test="birthday != null and birthday != ''">
+            ,birthday = #{birthday}
+        </if>
+        <where>
+            email = #{email}
+        </where>
+    </update>
+
+</mapper>

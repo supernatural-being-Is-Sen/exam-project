@@ -1,0 +1,24 @@
+server:
+  port: 8080
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7776/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+spring:
+  application:
+    name: zuul-web
+  redis:
+    host: 118.25.144.199
+    port: 6379
+    password: senge
+zuul:
+  routes:
+    user-consumer: /user/**
+  host:
+    connect-timeout-millis: 15000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

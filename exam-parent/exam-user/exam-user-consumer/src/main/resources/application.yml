@@ -1,0 +1,46 @@
+server:
+  port: 7100
+spring:
+  #设置session过期时间
+  session:
+    store-type: redis
+    timeout: 99999
+  #rabbitmq
+  rabbitmq:
+    host: 118.25.144.199
+    port: 5672
+    username: guest
+    password: guest
+    #验证码的交换机、路由键、队列名
+    verificationCode-exchange: verificationCode
+    verificationCode-key: verificationCode
+    verificationCode-queue: verificationCode
+  #邮箱
+  mail:
+    username: sen1214166598@163.com
+    password: senge521
+    host: smtp.163.com
+    default-encoding: UTF-8
+  main:
+    allow-bean-definition-overriding: true
+  #应用名称
+  application:
+    name: exam-users-consumer
+  #redis
+  redis:
+    host: 118.25.144.199
+    port: 6379
+    password: senge
+    database: 0
+    timeout: 3000
+#eureka
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8887/eureka/
+    register-with-eureka: true
+#开启容错
+feign:
+  hystrix:
+    enabled: true

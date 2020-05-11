@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.exam.ExamMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.exam.Exam">
+        <id column="id" property="id" />
+        <result column="exam_name" property="examName" />
+        <result column="exam_begin_time" property="examBeginTime" />
+        <result column="exam_end_time" property="examEndTime" />
+        <result column="exam_type_id" property="examTypeId" />
+        <result column="exam_detail" property="examDetail" />
+        <result column="user_id" property="userId" />
+        <result column="exam_del" property="examDel" />
+    </resultMap>
+    <insert id="addExam" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into exam
+        (exam_name,exam_begin_time,exam_end_time,exam_type_id,exam_detail,user_id,exam_del)
+        values
+        (
+            #{examName},
+            now(),
+            #{examEndTime},
+            #{examTypeId},
+            #{examDetail},
+            #{userId},
+            0
+        )
+    </insert>
+
+</mapper>

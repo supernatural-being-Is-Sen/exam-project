@@ -1,0 +1,23 @@
+
+server:
+  port: 7700
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: exam-subject-consumer
+  data:
+    elasticsearch:
+      cluster-name: exam-cluster
+      cluster-nodes: 192.168.219.149:9300
+#eureka
+eureka:
+  client:
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8887/eureka/
+    register-with-eureka: true
+#开启容错
+feign:
+  hystrix:
+    enabled: true

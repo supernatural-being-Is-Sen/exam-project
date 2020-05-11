@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.test.TestTypeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.test.TestType">
+        <id column="id" property="id" />
+        <result column="test_type_name" property="testTypeName" />
+        <result column="test_type_detail" property="testTypeDetail" />
+        <result column="test_type_count" property="testTypeCount" />
+        <result column="test_score" property="testScore" />
+        <result column="test_type_image" property="testTypeImage" />
+        <result column="test_time" property="testTime" />
+        <result column="test_type_del" property="testTypeDel" />
+    </resultMap>
+
+</mapper>

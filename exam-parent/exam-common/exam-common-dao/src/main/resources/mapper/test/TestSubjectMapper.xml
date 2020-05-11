@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.test.TestSubjectMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.test.TestSubject">
+        <id column="id" property="id" />
+        <result column="user_test_id" property="userTestId" />
+        <result column="subject_id" property="subjectId" />
+    </resultMap>
+
+    <!-- 批量添加测试题目 -->
+    <insert id="addTestSubjects" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="java.util.List">
+        insert into test_subject
+        (user_test_id,subject_id)
+        values
+        <foreach collection="list" item="testSubjectId" separator=",">
+            (
+                #{testSubjectId.userTestId},
+                #{testSubjectId.subjectId}
+            )
+        </foreach>
+    </insert>
+
+</mapper>

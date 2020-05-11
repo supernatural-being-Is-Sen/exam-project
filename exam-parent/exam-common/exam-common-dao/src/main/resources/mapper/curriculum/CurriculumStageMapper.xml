@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.curriculum.CurriculumStageMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.curriculum.CurriculumStage">
+        <id column="id" property="id" />
+        <result column="curriculum_id" property="curriculumId" />
+        <result column="stage_id" property="stageId" />
+        <result column="curriculum_stage_del" property="curriculumStageDel" />
+    </resultMap>
+
+    <select id="findCurriculumIdByStageId" resultType="int">
+        select curriculum_id from curriculum_stage
+        <where>
+            and stage_id = #{stageId}
+        </where>
+    </select>
+
+</mapper>

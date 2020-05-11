@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.subject.SubjectMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.subject.Subject">
+        <id column="id" property="id" />
+        <result column="subject_name" property="subjectName" />
+        <result column="subject_type_id" property="subjectTypeId" />
+        <result column="knowledge_id" property="knowledgeId" />
+        <result column="analysis" property="analysis" />
+        <result column="subject_del" property="subjectDel" />
+    </resultMap>
+    <select id="findRandomSubjectByChapter" resultType="com.coolyusen.exam.pojo.subject.Subject">
+        SELECT * FROM  SUBJECT
+        WHERE knowledge_id IN (SELECT id FROM knowledge WHERE chapter_id = #{chapterId})
+        <if test="notSelect != null">
+            and id not in (
+            <foreach collection="notSelect" separator="," item="not">
+                #{not}
+            </foreach>
+            )
+        </if>
+        ORDER BY RAND() LIMIT #{number}
+    </select>
+
+</mapper>

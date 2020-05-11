@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.vo.ExamBaseInfoMapper">
+
+    <select id="findExamBaseInfoByGradeId" resultType="com.coolyusen.exam.vo.ExamBaseInfoVo">
+        SELECT * FROM exam
+        INNER JOIN exam_grade AS grade
+        ON grade.`exam_id` = exam.`id`
+        INNER JOIN exam_type AS `type`
+        ON `type`.`id` = exam.`exam_type_id`
+        <where>
+            <if test="gradeId != null">
+                and grade.grade_id = #{gradeId}
+            </if>
+            and exam.exam_del = 0
+        </where>
+    </select>
+
+</mapper>

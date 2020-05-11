@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coolyusen.exam.mapper.curriculum.CurriculumSystemMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coolyusen.exam.pojo.curriculum.CurriculumSystem">
+        <id column="id" property="id" />
+        <result column="curriculum_system_name" property="curriculumSystemName" />
+        <result column="curriculum_system_detail" property="curriculumSystemDetail" />
+        <result column="curriculum_system_del" property="curriculumSystemDel" />
+    </resultMap>
+
+</mapper>

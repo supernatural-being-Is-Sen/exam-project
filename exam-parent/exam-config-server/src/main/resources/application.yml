@@ -1,0 +1,20 @@
+server:
+  port: 9988
+spring:
+  application:
+    name: exam-config-server
+  cloud:
+    #����
+    config:
+      server:
+        git:
+          uri: https://gitee.com/coolyusen/coolyusen-exam.git
+          username: coolyusen
+          password: senge520!!!
+          search-paths: coolyusen-exam-config
+#ע������
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8887/eureka/
+    fetch-registry: false
